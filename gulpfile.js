@@ -14,7 +14,7 @@ var gulp          = require('gulp'),
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: {
-			baseDir: './dist/'
+			baseDir: './everesttrek-dist/'
 		},
 		notify: false,
 		// open: false,
@@ -27,26 +27,26 @@ gulp.task('styles', function(){
     return gulp.src('src/css/*.css')
     .pipe(concat('everesttrek.css'))
     .pipe(autoprefixer(['last 15 versions']))
-	.pipe(gulp.dest('dist/css'))
+	.pipe(gulp.dest('everesttrek-dist/css'))
 	.pipe(browserSync.stream())
 });
 
 gulp.task('uncss', function () {
     var plugins = [
         uncss({
-            html: ['dist/*.html']
+            html: ['everesttrek-dist/*.html']
         }),
     ];
-    return gulp.src('dist/css/*.css')
+    return gulp.src('everesttrek-dist/css/*.css')
 		.pipe(postcss(plugins))
 		.pipe(cleancss( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
-        .pipe(gulp.dest('dist/css'));
+        .pipe(gulp.dest('everesttrek-dist/css'));
 });
 
 gulp.task('watch', ['styles', 'browser-sync'], function() {
 	gulp.watch('src/css/*.css', ['styles']);
 	// gulp.watch('css/*.css', ['uncss']);
-	gulp.watch('dist/*.html', browserSync.reload)
+	gulp.watch('everesttrek-dist/*.html', browserSync.reload)
 });
 
 gulp.task('default', ['watch']);
