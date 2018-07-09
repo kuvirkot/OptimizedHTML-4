@@ -2,15 +2,18 @@
     --hover-transition: all 150ms ease;
 }
 
+img {
+    image-rendering: pixelated;
+  }
+
     .navbar-light .navbar-brand .inline-svg-icon-logo:hover, .navbar-light .navbar-brand .inline-svg-icon-logo:focus {
     color: rgb(255, 68, 0, 0.7); }
 
 .display-page-title {
     font-weight: 300;
     line-height: 1.2;
-    margin-top: 10rem; 
+    /* margin-top: 10rem;  */
 }
-
 
 @media (min-width: 576px) {
     .display-page-title {
@@ -87,10 +90,19 @@
     font-weight: 600
 }
 
-a {
+/* a {
     background-color: transparent;
     color: #e67c7e
+} */
+
+.nav-link-right {
+
 }
+
+.navbar-light .navbar-text .nav-link-right {
+    color: rgb(220, 107, 103); 
+    font-weight: 600;}
+
 
 .inline-svg-icon {
     display: inline-block;
@@ -378,4 +390,3 @@ footer {
     height: 0.5rem;
     fill: #e67c7e;
 }
-
